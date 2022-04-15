@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagramclonekt.R
 import com.example.instagramclonekt.adapter.SearchAdapter
+import com.example.instagramclonekt.manager.DatabaseManager
+import com.example.instagramclonekt.manager.handler.DBUsersHandler
 import com.example.instagramclonekt.model.User
 
 /*
@@ -67,7 +69,22 @@ class SearchFragment : BaseFragment() {
         refreshAdapter(users)
     }
 
-    fun loadUsers():ArrayList<User>{
+    fun loadUsers(){
+        DatabaseManager.loadUsers(object :DBUsersHandler{
+            override fun onSuccess(users: ArrayList<User>) {
+                items.clear()
+                items.addAll(users)
+                refreshAdapter(items)
+            }
+
+            override fun onError(e: Exception) {
+
+            }
+
+        })
+    }
+
+    /*fun loadUsers():ArrayList<User>{
         items = ArrayList()
 
         items.add(User("Xurshid","shamsun.com@gmail.com"))
@@ -80,6 +97,6 @@ class SearchFragment : BaseFragment() {
         items.add(User("Firdavs","shamsun.com@gmail.com"))
 
         return items
-    }
+    }*/
 
 }

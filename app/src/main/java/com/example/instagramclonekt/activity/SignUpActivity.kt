@@ -5,7 +5,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.example.initialfirebaseapp.manager.AuthHandler
 import com.example.instagramclonekt.R
+import com.example.instagramclonekt.manager.AuthManager
+import com.example.instagramclonekt.manager.DatabaseManager
+import com.example.instagramclonekt.manager.handler.DBUserHandler
+import com.example.instagramclonekt.model.User
+import com.example.instagramclonekt.utils.Extensions.toast
 
 /*
    In SignUp Activity user can sign up using fullname, email, password
@@ -33,10 +39,48 @@ class SignUpActivity : BaseActivity() {
         val tv_signin:TextView = findViewById(R.id.tv_signin)
 
         b_signup.setOnClickListener {
-            finish()
+            val fullname = et_fullname.text.toString().trim()
+            val email = et_email.text.toString().trim()
+            val password = et_password.text.toString().trim()
+            if (email.isNotEmpty() && password.isNotEmpty()){
+                val user = User(fullname,email,password,"")
+                firebaseSignUp(user)
+            }
         }
         tv_signin.setOnClickListener {
             finish()
         }
     }
+
+    fun firebaseSignUp(user: User){
+        showLoading(this)
+        AuthManager.signUp(user.email,user.password,object : AuthHandler{
+            override fun onSuccess(uid: String) {
+                dismissLoading()
+                user.uid = uid
+                storeUserToDB(user)
+                toast("Signed up successfully")
+            }
+
+            override fun onError(exception: Exception?) {
+                dismissLoading()
+                toast(getString(R.string.str_signup_failed))
+            }
+
+        })
+    }
+
+    private fun storeUserToDB(user: User){
+        DatabaseManager.storeUser(user, object: DBUserHandler {
+            override fun onSuccess(user: User?) {
+                dismissLoading()
+                callMainActivity(context)
+            }
+
+            override fun onError(e: Exception) {
+
+            }
+        })
+    }
+
 }

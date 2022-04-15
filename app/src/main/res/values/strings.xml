@@ -21,6 +21,9 @@
     <string name="str_followers">Followers</string>
     <string name="str_posts">Posts</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_signin_success">Sign in successfully</string>
+    <string name="str_signin_failed">Sign in failed</string>
+    <string name="str_signup_success">Sign up successfully</string>
+    <string name="str_signup_failed">Sign up failed</string>
 
 </resources>

@@ -31,9 +31,11 @@ class SearchAdapter(var fragment:SearchFragment, var items:ArrayList<User>):Base
         if (holder is UserViewHolder){
             val tv_fullname = holder.tv_fullname
             val tv_email = holder.tv_email
+            val iv_profile = holder.iv_profile
 
             tv_fullname.text = user.fullname
             tv_email.text = user.email
+            Glide.with(fragment).load(user.userImg).into(iv_profile)
         }
     }
 
