@@ -12,10 +12,19 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.instagramclonekt.R
+import com.example.instagramclonekt.manager.AuthManager
+import com.example.instagramclonekt.manager.DatabaseManager
+import com.example.instagramclonekt.manager.StorageManager
+import com.example.instagramclonekt.manager.handler.DBPostHandler
+import com.example.instagramclonekt.manager.handler.DBUserHandler
+import com.example.instagramclonekt.manager.handler.StorageHandler
+import com.example.instagramclonekt.model.Post
+import com.example.instagramclonekt.model.User
 import com.example.instagramclonekt.utils.Logger
 import com.example.instagramclonekt.utils.Utils
 import com.sangcomz.fishbun.FishBun
 import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter
+import java.lang.Exception
 import java.lang.RuntimeException
 
 /*
@@ -84,13 +93,69 @@ class UploadFragment : BaseFragment() {
         listener!!.scrollToHome()
         val caption = et_caption.text.toString().trim()
         if (caption.isNotEmpty() && pickedPhoto != null){
-            Logger.d(TAG,caption)
-            Logger.d(TAG,pickedPhoto!!.path.toString())
-            resetAll()
+            uploadPostPhoto(caption,pickedPhoto!!)
         }
     }
 
+    fun uploadPostPhoto(caption:String,uri:Uri){
+        showLoading(requireActivity())
+        StorageManager.uploadPostPhoto(uri,object :StorageHandler{
+            override fun onSuccess(imgUrl: String) {
+                val post = Post(caption,imgUrl)
+                val uid = AuthManager.currentUser()!!.uid
+
+                DatabaseManager.loadUser(uid,object :DBUserHandler{
+                    override fun onSuccess(user: User?) {
+                        post.uid = uid
+                        post.fullname = user!!.fullname
+                        post.userImg = user.userImg
+                        storePosttoDB(post)
+                    }
+
+                    override fun onError(e: Exception) {
+
+                    }
+
+                })
+            }
+
+            override fun onError(exception: Exception?) {
+
+            }
+
+        })
+    }
+
+    fun storePosttoDB(post: Post){
+        DatabaseManager.storePosts(post,object :DBPostHandler{
+            override fun onSuccess(post: Post) {
+                storeFeedToDb(post)
+            }
+
+            override fun onError(e: Exception) {
+                dismissLoading()
+            }
+
+        })
+    }
+
+    fun storeFeedToDb(post: Post){
+        DatabaseManager.storeFeeds(post,object : DBPostHandler{
+            override fun onSuccess(post: Post) {
+                dismissLoading()
+                resetAll()
+                listener!!.scrollToHome()
+            }
+
+            override fun onError(e: Exception) {
+                dismissLoading()
+            }
+
+        })
+    }
+
     private fun resetAll() {
+        allPhotos.clear()
         et_caption.text.clear()
         pickedPhoto = null
         fl_photo.visibility = View.GONE

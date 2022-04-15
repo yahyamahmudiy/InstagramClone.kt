@@ -1,7 +1,10 @@
 package com.example.instagramclonekt.manager
 
+import com.example.instagramclonekt.manager.handler.DBPostHandler
+import com.example.instagramclonekt.manager.handler.DBPostsHandler
 import com.example.instagramclonekt.manager.handler.DBUserHandler
 import com.example.instagramclonekt.manager.handler.DBUsersHandler
+import com.example.instagramclonekt.model.Post
 import com.example.instagramclonekt.model.User
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -65,5 +68,38 @@ object DatabaseManager {
         }
     }
 
+    fun storePosts(post: Post,handler:DBPostHandler){
+        val referance = database.collection(USER_PATH).document(post.uid).collection(POST_PATH)
+        val id = referance.document().id
+        post.id = id
+
+        referance.document(post.id).set(post).addOnSuccessListener {
+            handler.onSuccess(post)
+        }.addOnFailureListener {
+            handler.onError(it)
+        }
+    }
+
+    fun loadPosts(uid: String,handler: DBPostsHandler){
+        val reference = database.collection(USER_PATH).document(uid).collection(POST_PATH)
+        reference.get().addOnCompleteListener {
+            val posts = ArrayList<Post>()
+            if (it.isSuccessful){
+                for (document in it.result!!){
+
+                }
+            }
+        }
+    }
+
+    fun storeFeeds(post: Post,handler:DBPostHandler){
+        val reference = database.collection(USER_PATH).document(post.uid).collection(FEED_PATH)
+
+        reference.document(post.id).set(post).addOnSuccessListener {
+            handler.onSuccess(post)
+        }.addOnFailureListener {
+            handler.onError(it)
+        }
+    }
 
 }
