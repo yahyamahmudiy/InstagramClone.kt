@@ -22,6 +22,7 @@ import com.example.instagramclonekt.manager.DatabaseManager
 import com.example.instagramclonekt.manager.StorageManager
 import com.example.instagramclonekt.manager.handler.DBPostsHandler
 import com.example.instagramclonekt.manager.handler.DBUserHandler
+import com.example.instagramclonekt.manager.handler.DBUsersHandler
 import com.example.instagramclonekt.manager.handler.StorageHandler
 import com.example.instagramclonekt.model.Post
 import com.example.instagramclonekt.model.User
@@ -44,6 +45,8 @@ class ProfileFragment : Fragment() {
     lateinit var tv_fullname:TextView
     lateinit var tv_email:TextView
     lateinit var tv_posts:TextView
+    lateinit var tv_followers:TextView
+    lateinit var tv_following:TextView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
@@ -59,6 +62,8 @@ class ProfileFragment : Fragment() {
         tv_fullname = view.findViewById(R.id.tv_fullname)
         tv_posts = view.findViewById(R.id.tv_posts)
         tv_email = view.findViewById(R.id.tv_email)
+        tv_followers = view.findViewById(R.id.tv_followers)
+        tv_following = view.findViewById(R.id.tv_following)
         iv_profile.setOnClickListener {
             pickFishBunPhoto()
         }
@@ -71,11 +76,42 @@ class ProfileFragment : Fragment() {
             base.callSignInActivity(requireActivity())
 
         }
+
         loadUserInfo()
         loadMyPosts()
+        loadMyFollowers()
+        loadMyFollowing()
+
     }
 
+    fun loadMyFollowers(){
+        val uid = AuthManager.currentUser()!!.uid
+        DatabaseManager.loadFollowers(uid,object : DBUsersHandler{
+            override fun onSuccess(users: ArrayList<User>) {
+                tv_followers.text = users.size.toString()
 
+            }
+
+            override fun onError(e: Exception) {
+
+            }
+
+        })
+    }
+
+    fun loadMyFollowing(){
+        val uid = AuthManager.currentUser()!!.uid
+        DatabaseManager.loadFollowing(uid,object : DBUsersHandler{
+            override fun onSuccess(users: ArrayList<User>) {
+                tv_following.text = users.size.toString()
+            }
+
+            override fun onError(e: Exception) {
+
+            }
+
+        })
+    }
 
     private fun uploadUserPhoto() {
         if (pickedPhoto == null) return
@@ -154,4 +190,6 @@ class ProfileFragment : Fragment() {
         })
 
     }
+
+
 }

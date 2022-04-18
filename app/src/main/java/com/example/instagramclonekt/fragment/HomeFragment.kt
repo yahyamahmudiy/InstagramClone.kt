@@ -2,6 +2,7 @@ package com.example.instagramclonekt.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,7 @@ class HomeFragment : BaseFragment() {
     private var listener:HomeListener? = null
     lateinit var iv_camera:ImageView
     lateinit var recyclerView: RecyclerView
+    var feeds = ArrayList<Post>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
@@ -31,7 +33,7 @@ class HomeFragment : BaseFragment() {
         return view
     }
 
-    private fun initViews(view: View) {
+    fun initViews(view: View) {
         iv_camera = view.findViewById(R.id.iv_camera)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.setLayoutManager(GridLayoutManager(activity,1))
@@ -56,7 +58,9 @@ class HomeFragment : BaseFragment() {
         DatabaseManager.loadFeeds(uid,object :DBPostsHandler{
             override fun onSuccess(posts: ArrayList<Post>) {
                 dismissLoading()
-                refreshAdapter(posts)
+                feeds.clear()
+                feeds.addAll(posts)
+                refreshAdapter(feeds)
             }
 
             override fun onError(e: Exception) {
@@ -64,6 +68,13 @@ class HomeFragment : BaseFragment() {
             }
 
         })
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        if (isVisibleToUser && feeds.size > 0){
+            Log.d(TAG, "setUserVisibleHint: ${isVisibleToUser}")
+            loadMyFeeds()
+        }
     }
 
     /*

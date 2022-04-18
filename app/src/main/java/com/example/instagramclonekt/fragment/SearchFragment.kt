@@ -73,11 +73,20 @@ class SearchFragment : BaseFragment() {
     }
 
     fun loadUsers(){
+        val uid = AuthManager.currentUser()!!.uid
         DatabaseManager.loadUsers(object :DBUsersHandler{
             override fun onSuccess(users: ArrayList<User>) {
-                items.clear()
-                items.addAll(users)
-                refreshAdapter(items)
+                DatabaseManager.loadFollowing(uid,object : DBUsersHandler{
+                    override fun onSuccess(following: ArrayList<User>) {
+                        items.clear()
+                        items.addAll(mergedUsers(uid,users,following))
+                        refreshAdapter(items)
+                    }
+
+                    override fun onError(e: java.lang.Exception) {
+
+                    }
+                })
             }
 
             override fun onError(e: Exception) {
@@ -85,6 +94,23 @@ class SearchFragment : BaseFragment() {
             }
 
         })
+    }
+
+    fun mergedUsers(uid:String,users:ArrayList<User>,following:ArrayList<User>):ArrayList<User>{
+        val items = ArrayList<User>()
+        for (u in users){
+            val user = u
+            for (f in following){
+                if (u.uid == f.uid){
+                    user.isFollowed = true
+                    break
+                }
+            }
+            if (uid != user.uid){
+                items.add(user)
+            }
+        }
+        return items
     }
 
     fun followOrUnfollow(to:User){
@@ -102,7 +128,30 @@ class SearchFragment : BaseFragment() {
                 DatabaseManager.followUser(me!!,to,object : DBFollowHandler{
                     override fun onSuccess(isFollowed: Boolean) {
                         to.isFollowed = true
-                        //DatabaseManager.storePostsToMyFeed(uid,to)
+                        DatabaseManager.storePostsToMyFeed(uid,to)
+                    }
+
+                    override fun onError(e: java.lang.Exception) {
+
+                    }
+
+                })
+            }
+
+            override fun onError(e: java.lang.Exception) {
+
+            }
+
+        })
+    }
+
+    fun unfollowUser(uid: String,to:User){
+        DatabaseManager.loadUser(uid,object :DBUserHandler{
+            override fun onSuccess(me: User?) {
+                DatabaseManager.unFollowUser(me!!,to,object : DBFollowHandler{
+                    override fun onSuccess(isFollowed: Boolean) {
+                        to.isFollowed = false
+                        DatabaseManager.removePostsToMyFeed(uid,to)
                     }
 
                     override fun onError(e: java.lang.Exception) {
