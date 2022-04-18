@@ -32,10 +32,26 @@ class SearchAdapter(var fragment:SearchFragment, var items:ArrayList<User>):Base
             val tv_fullname = holder.tv_fullname
             val tv_email = holder.tv_email
             val iv_profile = holder.iv_profile
+            var tv_follow = holder.tv_follow
 
             tv_fullname.text = user.fullname
             tv_email.text = user.email
             Glide.with(fragment).load(user.userImg).into(iv_profile)
+
+            tv_follow.setOnClickListener {
+                if (user.isFollowed){
+                    tv_follow.text = fragment.getString(R.string.str_following)
+                }else{
+                    tv_follow.text = fragment.getString(R.string.str_follow)
+                }
+                fragment.followOrUnfollow(user)
+            }
+
+            if (!user.isFollowed){
+                tv_follow.text = fragment.getString(R.string.str_follow)
+            }else{
+                tv_follow.text = fragment.getString(R.string.str_following)
+            }
         }
     }
 
@@ -43,12 +59,13 @@ class SearchAdapter(var fragment:SearchFragment, var items:ArrayList<User>):Base
         val iv_profile:ShapeableImageView
         val tv_fullname:TextView
         val tv_email:TextView
+        val tv_follow:TextView
 
         init {
             iv_profile = view.findViewById(R.id.iv_profile)
             tv_fullname = view.findViewById(R.id.tv_fullname)
             tv_email = view.findViewById(R.id.tv_email)
-
+            tv_follow = view.findViewById(R.id.tv_follow)
         }
     }
 

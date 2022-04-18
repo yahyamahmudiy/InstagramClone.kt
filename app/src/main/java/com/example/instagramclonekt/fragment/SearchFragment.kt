@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagramclonekt.R
 import com.example.instagramclonekt.adapter.SearchAdapter
+import com.example.instagramclonekt.manager.AuthManager
 import com.example.instagramclonekt.manager.DatabaseManager
+import com.example.instagramclonekt.manager.handler.DBFollowHandler
+import com.example.instagramclonekt.manager.handler.DBUserHandler
 import com.example.instagramclonekt.manager.handler.DBUsersHandler
 import com.example.instagramclonekt.model.User
 
@@ -84,19 +87,36 @@ class SearchFragment : BaseFragment() {
         })
     }
 
-    /*fun loadUsers():ArrayList<User>{
-        items = ArrayList()
+    fun followOrUnfollow(to:User){
+        val uid = AuthManager.currentUser()!!.uid
+        if (!to.isFollowed){
+            followUser(uid,to)
+        }else{
+            unfollowUser(uid,to)
+        }
+    }
 
-        items.add(User("Xurshid","shamsun.com@gmail.com"))
-        items.add(User("Begzod","shamsun.com@gmail.com"))
-        items.add(User("Sherzod","shamsun.com@gmail.com"))
-        items.add(User("Firdavs","shamsun.com@gmail.com"))
-        items.add(User("Xurshid","shamsun.com@gmail.com"))
-        items.add(User("Begzod","shamsun.com@gmail.com"))
-        items.add(User("Sherzod","shamsun.com@gmail.com"))
-        items.add(User("Firdavs","shamsun.com@gmail.com"))
+    fun followUser(uid:String,to:User){
+        DatabaseManager.loadUser(uid,object :DBUserHandler{
+            override fun onSuccess(me: User?) {
+                DatabaseManager.followUser(me!!,to,object : DBFollowHandler{
+                    override fun onSuccess(isFollowed: Boolean) {
+                        to.isFollowed = true
+                        //DatabaseManager.storePostsToMyFeed(uid,to)
+                    }
 
-        return items
-    }*/
+                    override fun onError(e: java.lang.Exception) {
+
+                    }
+
+                })
+            }
+
+            override fun onError(e: java.lang.Exception) {
+
+            }
+
+        })
+    }
 
 }

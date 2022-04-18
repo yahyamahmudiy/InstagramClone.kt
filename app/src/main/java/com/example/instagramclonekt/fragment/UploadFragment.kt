@@ -108,7 +108,7 @@ class UploadFragment : BaseFragment() {
                     override fun onSuccess(user: User?) {
                         post.uid = uid
                         post.fullname = user!!.fullname
-                        post.userImg = user.userImg
+                        post.userImg = user!!.userImg
                         storePosttoDB(post)
                     }
 

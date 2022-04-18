@@ -1,9 +1,6 @@
 package com.example.instagramclonekt.manager
 
-import com.example.instagramclonekt.manager.handler.DBPostHandler
-import com.example.instagramclonekt.manager.handler.DBPostsHandler
-import com.example.instagramclonekt.manager.handler.DBUserHandler
-import com.example.instagramclonekt.manager.handler.DBUsersHandler
+import com.example.instagramclonekt.manager.handler.*
 import com.example.instagramclonekt.model.Post
 import com.example.instagramclonekt.model.User
 import com.google.firebase.firestore.FirebaseFirestore
@@ -85,9 +82,51 @@ object DatabaseManager {
         reference.get().addOnCompleteListener {
             val posts = ArrayList<Post>()
             if (it.isSuccessful){
-                for (document in it.result!!){
+                for (document in it.result){
+                    val id = document.getString("id")
+                    val caption = document.getString("caption")
+                    val postImg = document.getString("postImg")
+                    val fullname = document.getString("fullname")
+                    val userImg = document.getString("userImg")
+                    val currentDate = document.getString("currentDate")
 
+                    val post = Post(id!!,caption!!,postImg!!)
+                    post.uid = uid
+                    post.currentDate = currentDate!!
+                    post.fullname = fullname!!
+                    post.userImg = userImg!!
+                    posts.add(post)
                 }
+                handler.onSuccess(posts)
+            }else{
+                handler.onError(it.exception!!)
+            }
+        }
+    }
+
+    fun loadFeeds(uid: String,handler: DBPostsHandler){
+        val reference = database.collection(USER_PATH).document(uid).collection(FEED_PATH).orderBy("currentDate")
+        reference.get().addOnCompleteListener {
+            val posts = ArrayList<Post>()
+            if (it.isSuccessful){
+                for (document in it.result){
+                    val id = document.getString("id")
+                    val caption = document.getString("caption")
+                    val postimg = document.getString("postImg")
+                    val fullname = document.getString("fullname")
+                    val userImg = document.getString("userImg")
+                    val currentDate = document.getString("currentDate")
+
+                    val post = Post(id!!,caption!!,postimg!!)
+                    post.uid = uid
+                    post.currentDate = currentDate!!
+                    post.fullname = fullname!!
+                    post.userImg = userImg!!
+                    posts.add(post)
+                }
+                handler.onSuccess(posts)
+            }else{
+                handler.onError(it.exception!!)
             }
         }
     }
@@ -100,6 +139,40 @@ object DatabaseManager {
         }.addOnFailureListener {
             handler.onError(it)
         }
+    }
+
+    fun followUser(me:User,to:User,handler: DBFollowHandler){
+        //User(To) is in my following
+        database.collection(USER_PATH).document(me.uid).collection(FOLLOWING_PATH).document(to.uid)
+            .set(to).addOnSuccessListener {
+                //User(Me) is in his/her followers
+                database.collection(USER_PATH).document(to.uid).collection(FOLLOWERS_PATH)
+                    .document(me.uid)
+                    .set(me).addOnSuccessListener {
+                        handler.onSuccess(true)
+                    }.addOnFailureListener {
+                        handler.onError(it)
+                    }
+            }.addOnFailureListener {
+                handler.onError(it)
+            }
+    }
+
+    fun unFollowUser(me:User,to:User,handler: DBFollowHandler){
+        //User(To) is in my following
+        database.collection(USER_PATH).document(me.uid).collection(FOLLOWING_PATH).document(to.uid)
+            .delete().addOnSuccessListener {
+                //User(Me) is in his/her followers
+                database.collection(USER_PATH).document(to.uid).collection(FOLLOWERS_PATH)
+                    .document(me.uid)
+                    .delete().addOnSuccessListener {
+                        handler.onSuccess(true)
+                    }.addOnFailureListener {
+                        handler.onError(it)
+                    }
+            }.addOnFailureListener {
+                handler.onError(it)
+            }
     }
 
 }
