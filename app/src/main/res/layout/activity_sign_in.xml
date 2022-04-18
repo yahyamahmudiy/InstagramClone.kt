@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white"
     tools:context=".activity.SignInActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/app_main_gradient"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="100dp"
         android:gravity="center_horizontal|center_vertical"
-        android:orientation="vertical"
-        android:padding="25dp">
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/custom_font"
             android:text="@string/str_instagram"
-            android:textColor="#ffffff"
-            android:textSize="30sp"/>
+            android:textColor="#000000"
+            android:textSize="50sp"/>
 
         <EditText
             android:id="@+id/et_email"
@@ -29,9 +32,10 @@
             android:background="@drawable/edittext_border"
             android:hint="@string/str_email"
             android:paddingHorizontal="15dp"
-            android:textColor="#ffffff"
-            android:textColorHint="#90ffffff"
-            android:textSize="16sp"/>
+            android:textColor="#262626"
+            android:textColorHint="#20000000"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="16dp"/>
         <EditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
@@ -40,30 +44,92 @@
             android:background="@drawable/edittext_border"
             android:hint="@string/str_password"
             android:paddingHorizontal="15dp"
-            android:textColor="#ffffff"
-            android:textColorHint="#90ffffff"
-            android:textSize="16sp"/>
+            android:textColor="#262626"
+            android:textColorHint="#20000000"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="16dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="right|center_vertical"
+            android:layout_marginHorizontal="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Forgot password?"
+                android:textColor="#3797EF"
+                android:textSize="17sp"
+                android:textStyle="normal" />
+        </LinearLayout>
         <Button
             android:id="@+id/b_signin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/edittext_border"
+            android:background="@drawable/edittext_border_button"
             android:text="@string/str_signin"
             android:textColor="#ffffff"
             android:textAllCaps="false"
             android:textSize="16sp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="16dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="16dp"
+            android:padding="5dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/facebook"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log in with Facebook"
+                android:layout_marginStart="10dp"
+                android:textColor="#3797EF"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="right|center_vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="16dp">
+            <View
+                android:layout_width="130dp"
+                android:layout_height="1dp"
+                android:background="#20000000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OR"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="#40000000"/>
+            <View
+                android:layout_width="130dp"
+                android:layout_height="1dp"
+                android:background="#20000000"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/str_donot_account"
-                android:textColor="#ffffff"
+                android:textColor="#40000000"
                 android:textSize="16sp" />
 
             <TextView
@@ -71,12 +137,47 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
                 android:text="@string/str_signup"
-                android:textColor="#ffffff"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textColor="#3797EF"
+                android:textSize="16sp"
+                android:textStyle="normal" />
         </LinearLayout>
 
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:gravity="center"
+        android:layout_marginTop="100dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="from"
+            android:textColor="#90000000"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/meta"/>
+    </LinearLayout>
+</LinearLayout>
+<!--
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="from"
+                android:textColor="#90000000"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:src="@drawable/meta"/>
+        </LinearLayout>
+        -->

@@ -12,7 +12,7 @@
     <string name="str_donot_account">Don\'t have an account?</string>
     <string name="str_home">Home</string>
     <string name="str_search">Search</string>
-    <string name="str_upload">Upload</string>
+    <string name="str_upload">New Post</string>
     <string name="str_favourite">Favourite</string>
     <string name="str_profile">Profile</string>
     <string name="str_write_caption">Write a caption</string>
@@ -20,10 +20,16 @@
     <string name="str_following">Following</string>
     <string name="str_followers">Followers</string>
     <string name="str_posts">Posts</string>
-
     <string name="str_signin_success">Sign in successfully</string>
     <string name="str_signin_failed">Sign in failed</string>
     <string name="str_signup_success">Sign up successfully</string>
     <string name="str_signup_failed">Sign up failed</string>
+
+    <string name="str_cancel">Cancel</string>
+    <string name="str_confirm">Confirm</string>
+    <string name="str_delete_post">Do you want to delete this post?</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>

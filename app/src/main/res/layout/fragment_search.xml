@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
-        android:elevation="4dp"
+        android:elevation="0dp"
+        android:visibility="visible"
         android:gravity="center"
         app:buttonGravity="center_vertical"
         app:titleTextColor="@color/white">
@@ -24,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/str_search"
-                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textSize="20sp"
                 android:textColor="@color/black"/>
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -34,14 +36,27 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical">
-        <EditText
-            android:id="@+id/et_search"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:layout_margin="16dp"
-            android:background="@drawable/edittext_rounded_corners"
-            android:hint="@string/str_search"
-            android:paddingHorizontal="10dp"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_rounded_corners"
+                android:hint="@string/str_search"
+                android:paddingHorizontal="10dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ic_live"/>
+        </LinearLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

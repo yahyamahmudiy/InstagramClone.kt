@@ -19,6 +19,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_iks"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -100,6 +105,44 @@
                 android:hint="@string/str_write_caption"
                 android:minHeight="50dp"
                 android:textSize="16sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_upload"
+            android:padding="10dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post"
+                android:textAllCaps="true"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Story"
+                android:textAllCaps="true"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="#90ffffff"
+                android:textSize="20sp"
+                android:textStyle="normal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Live"
+                android:textAllCaps="true"
+                android:layout_marginEnd="10dp"
+                android:textColor="#90ffffff"
+                android:textSize="20sp"
+                android:textStyle="normal"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

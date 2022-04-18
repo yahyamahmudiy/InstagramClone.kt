@@ -1,4 +1,4 @@
-package com.example.initialfirebaseapp.manager
+package com.example.instagramclonekt.manager.handler
 
 import java.lang.Exception
 

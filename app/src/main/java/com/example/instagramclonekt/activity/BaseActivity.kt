@@ -33,16 +33,13 @@ open class BaseActivity : AppCompatActivity(){
         if (activity == null) return
 
         if (progressDialog != null && progressDialog!!.isShowing()) {
-//            progressDialog.dismiss();
+        //progressDialog.dismiss();
         } else {
-            progressDialog = AppCompatDialog(activity, R.style.CustomDialog)
+            progressDialog = AppCompatDialog(activity)
             progressDialog!!.setCancelable(false)
             progressDialog!!.setCanceledOnTouchOutside(false)
             progressDialog!!.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             progressDialog!!.setContentView(R.layout.custom_progress_dialog)
-            val iv_progress = progressDialog!!.findViewById<ImageView>(R.id.iv_progress)
-            val animationDrawable = iv_progress!!.getDrawable() as AnimationDrawable
-            animationDrawable.start()
             if (!activity.isFinishing) progressDialog!!.show()
         }
     }

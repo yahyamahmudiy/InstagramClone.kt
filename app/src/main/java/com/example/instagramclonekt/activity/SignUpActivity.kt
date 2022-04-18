@@ -1,14 +1,14 @@
 package com.example.instagramclonekt.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import com.example.initialfirebaseapp.manager.AuthHandler
+import com.example.instagramclonekt.manager.handler.AuthHandler
 import com.example.instagramclonekt.R
 import com.example.instagramclonekt.manager.AuthManager
 import com.example.instagramclonekt.manager.DatabaseManager
+import com.example.instagramclonekt.manager.PrefsManager
 import com.example.instagramclonekt.manager.handler.DBUserHandler
 import com.example.instagramclonekt.model.User
 import com.example.instagramclonekt.utils.Extensions.toast
@@ -42,8 +42,10 @@ class SignUpActivity : BaseActivity() {
             val fullname = et_fullname.text.toString().trim()
             val email = et_email.text.toString().trim()
             val password = et_password.text.toString().trim()
+            val deviceToken = PrefsManager(this).loadDeviceToken()!!
             if (email.isNotEmpty() && password.isNotEmpty()){
                 val user = User(fullname,email,password,"")
+                user.device_tokens.add(deviceToken)
                 firebaseSignUp(user)
             }
         }
@@ -54,7 +56,7 @@ class SignUpActivity : BaseActivity() {
 
     fun firebaseSignUp(user: User){
         showLoading(this)
-        AuthManager.signUp(user.email,user.password,object : AuthHandler{
+        AuthManager.signUp(user.email,user.password,object : AuthHandler {
             override fun onSuccess(uid: String) {
                 dismissLoading()
                 user.uid = uid
@@ -71,10 +73,11 @@ class SignUpActivity : BaseActivity() {
     }
 
     private fun storeUserToDB(user: User){
+
         DatabaseManager.storeUser(user, object: DBUserHandler {
             override fun onSuccess(user: User?) {
                 dismissLoading()
-                callMainActivity(context)
+                callMainActivity(this@SignUpActivity)
             }
 
             override fun onError(e: Exception) {

@@ -4,42 +4,74 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable-v24/edittext_border.xml" value="0.22314814814814815" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable-v24/edittext_border_button.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable-v24/gradient.xml" value="0.22314814814814815" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable-v24/ic_home_selector.xml" value="0.2703125" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable-v24/ic_like_selector.xml" value="0.2703125" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable-v24/ic_search_selector.xml" value="0.2703125" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable-v24/shape_circle_orange_light.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable-v24/textview_rounded_corners_blue.xml" value="0.26205128205128203" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/account_circle.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/app_main_gradient.xml" value="0.2537037037037037" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/background_upload.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/bottom_navigation_color_selected.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/bottom_navigation_color_selector.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/edittext_rounded_corners.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_add.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_add_photo.xml" value="0.262037037037037" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_add_post.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_arrow_back.xml" value="0.2638888888888889" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_arrow_down.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_camera.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_clear.xml" value="0.262037037037037" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_direct.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_direct_message.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_favorite.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_home.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_home_selector.xml" value="0.2703125" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_iks.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_like.xml" value="0.253125" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_like_selector.xml" value="0.2703125" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_liked.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_live.xml" value="0.2703125" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_logout.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_menu.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_messanger.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_messenger.xml" value="0.152" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_more.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_person_add.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_profile.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_search.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_search_selector.xml" value="0.2703125" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_share.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_twotone_add_circle.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/ic_upload.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/story_border.xml" value="0.26615384615384613" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/textview_rounded_corners.xml" value="0.26615384615384613" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/drawable/view_dialog_double.xml" value="0.26205128205128203" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/font-v26/custom_font.xml" value="0.2537037037037037" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/font/custom_font.xml" value="0.2537037037037037" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/activity_liked_posts.xml" value="0.24003623188405798" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
-        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
-        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/activity_splash.xml" value="0.176" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/custom_progress_dialog.xml" value="0.24682971014492755" />
-        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_favourite.xml" value="0.2418478260869565" />
-        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_home.xml" value="0.2418478260869565" />
-        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_favourite.xml" value="0.2" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_search.xml" value="0.2418478260869565" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_upload.xml" value="0.2418478260869565" />
-        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_favourite.xml" value="0.4" />
-        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_home.xml" value="0.2" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_favourite.xml" value="0.264" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_home.xml" value="0.264" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_home_footer.xml" value="0.264" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_story_view.xml" value="0.4" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_user_search.xml" value="0.264" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/nav_drawer_header.xml" value="0.25416666666666665" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/view_dialog_double.xml" value="0.25" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/view_dialog_single.xml" value="0.25" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/menu/nav_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/menu/navigation.xml" value="0.25416666666666665" />
       </map>
     </option>

@@ -48,6 +48,7 @@ class MainActivity : BaseActivity(), HomeFragment.HomeListener, UploadFragment.U
                 }
             }
             true
+
         }
 
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{

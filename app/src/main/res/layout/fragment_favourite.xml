@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.FavouriteFragment">
 
@@ -11,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
-        android:elevation="4dp"
+        android:elevation="0dp"
         android:gravity="center"
         app:buttonGravity="center_vertical"
         app:titleTextColor="@color/white">
@@ -23,13 +24,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/str_favourite"
-                android:textSize="17sp"
+                android:text="Activity"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"/>
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"/>
 </LinearLayout>

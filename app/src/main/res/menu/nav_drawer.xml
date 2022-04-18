@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+      <item
+          android:id="@+id/overflowMenu"
+          android:icon="@drawable/ic_menu"
+          android:title=""
+          app:showAsAction="always">
+            <menu>
+                  <item android:id="@+id/first"
+                      android:title="Liked Posts"
+                      android:icon="@drawable/ic_liked"
+                      app:showAsAction="never"/>
+
+                  <item android:id="@+id/second"
+                      android:title="Log Out"
+                      android:icon="@drawable/ic_logout"
+                  app:showAsAction="never"/>
+            </menu>
+      </item>
+
+</menu>

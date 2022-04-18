@@ -1,8 +1,7 @@
 package com.example.instagramclonekt.manager
 
-import com.example.initialfirebaseapp.manager.AuthHandler
+import com.example.instagramclonekt.manager.handler.AuthHandler
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.auth.FirebaseUser
 
 class AuthManager {
@@ -17,7 +16,7 @@ class AuthManager {
             return firebaseAuth.currentUser
         }
 
-        fun signIn(email:String,password:String,handler:AuthHandler){
+        fun signIn(email:String,password:String,handler: AuthHandler){
             firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
                 if (task.isSuccessful){
                     val uid = currentUser()!!.uid
@@ -28,7 +27,7 @@ class AuthManager {
             }
         }
 
-        fun signUp(email:String,password:String,handler:AuthHandler){
+        fun signUp(email:String,password:String,handler: AuthHandler){
             firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
                 if (task.isSuccessful){
                     val uid = currentUser()!!.uid

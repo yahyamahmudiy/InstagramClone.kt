@@ -5,9 +5,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import com.example.initialfirebaseapp.manager.AuthHandler
+import com.example.instagramclonekt.manager.handler.AuthHandler
 import com.example.instagramclonekt.R
 import com.example.instagramclonekt.manager.AuthManager
+import com.example.instagramclonekt.manager.DatabaseManager
+import com.example.instagramclonekt.manager.PrefsManager
+import com.example.instagramclonekt.manager.handler.DBUserHandler
+import com.example.instagramclonekt.model.User
 import com.example.instagramclonekt.utils.Extensions.toast
 import java.lang.Exception
 
@@ -44,11 +48,11 @@ class SignInActivity : BaseActivity() {
 
      fun firebaseSignIn(email:String,password:String){
          showLoading(this)
-         AuthManager.signIn(email,password,object :AuthHandler{
+         AuthManager.signIn(email,password,object : AuthHandler {
              override fun onSuccess(uid: String) {
                  dismissLoading()
                  toast(getString(R.string.str_signin_success))
-                 callMainActivity(context)
+                 storeDeviceTokenToUser()
              }
 
              override fun onError(exception: Exception?) {
@@ -58,6 +62,21 @@ class SignInActivity : BaseActivity() {
 
          })
      }
+
+    private fun storeDeviceTokenToUser() {
+        val deviceToken = PrefsManager(this).loadDeviceToken()
+        var uid = AuthManager.currentUser()!!.uid
+        DatabaseManager.addMyDeviceToken(uid, deviceToken, object : DBUserHandler {
+            override fun onSuccess(user: User?) {
+                callMainActivity(context)
+            }
+
+            override fun onError(e: Exception) {
+                callMainActivity(context)
+            }
+
+        })
+    }
 
      fun callSignUpActivity() {
         val intent = Intent(this,SignUpActivity::class.java)

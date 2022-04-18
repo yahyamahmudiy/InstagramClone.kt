@@ -1,5 +1,6 @@
 package com.example.instagramclonekt.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,21 +37,33 @@ class SearchAdapter(var fragment:SearchFragment, var items:ArrayList<User>):Base
 
             tv_fullname.text = user.fullname
             tv_email.text = user.email
-            Glide.with(fragment).load(user.userImg).into(iv_profile)
+
+            Glide.with(fragment).load(user.userImg)
+                .placeholder(R.drawable.ic_person)
+                .error(R.drawable.ic_person)
+                .into(iv_profile)
 
             tv_follow.setOnClickListener {
-                if (user.isFollowed){
+                if(!user.isFollowed){
                     tv_follow.text = fragment.getString(R.string.str_following)
+                    tv_follow.setTextColor(Color.BLACK)
+                    tv_follow.setBackgroundResource(R.drawable.textview_rounded_corners)
                 }else{
                     tv_follow.text = fragment.getString(R.string.str_follow)
+                    tv_follow.setTextColor(Color.WHITE)
+                    tv_follow.setBackgroundResource(R.drawable.textview_rounded_corners_blue)
                 }
                 fragment.followOrUnfollow(user)
             }
 
-            if (!user.isFollowed){
+            if(!user.isFollowed){
                 tv_follow.text = fragment.getString(R.string.str_follow)
+                tv_follow.setTextColor(Color.WHITE)
+                tv_follow.setBackgroundResource(R.drawable.textview_rounded_corners_blue)
             }else{
                 tv_follow.text = fragment.getString(R.string.str_following)
+                tv_follow.setTextColor(Color.BLACK)
+                tv_follow.setBackgroundResource(R.drawable.textview_rounded_corners)
             }
         }
     }
