@@ -33,8 +33,11 @@ class ProfileAdapter(var fragment:ProfileFragment, var items:ArrayList<Post>):Ba
             val tv_caption = holder.tv_caption
 
             tv_caption.text = post.caption
+<<<<<<< HEAD
             tv_caption.visibility = View.GONE
 
+=======
+>>>>>>> origin/master
             setViewHeight(iv_post)
             Glide.with(fragment).load(post.postImg).into(iv_post)
         }

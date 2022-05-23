@@ -59,8 +59,11 @@ class ProfileFragment : Fragment() {
     lateinit var tv_posts:TextView
     lateinit var tv_followers:TextView
     lateinit var tv_following:TextView
+<<<<<<< HEAD
     lateinit var toolbar: Toolbar
     //lateinit var toggle: ActionBarDrawerToggle
+=======
+>>>>>>> origin/master
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
@@ -80,7 +83,10 @@ class ProfileFragment : Fragment() {
         tv_email = view.findViewById(R.id.tv_email)
         tv_followers = view.findViewById(R.id.tv_followers)
         tv_following = view.findViewById(R.id.tv_following)
+<<<<<<< HEAD
         toolbar = view.findViewById(R.id.toolBar) as Toolbar
+=======
+>>>>>>> origin/master
         iv_profile.setOnClickListener {
             pickFishBunPhoto()
         }
@@ -92,6 +98,7 @@ class ProfileFragment : Fragment() {
 
         }
 
+<<<<<<< HEAD
         toolbar.inflateMenu(R.menu.nav_drawer);
         toolbar.setOnMenuItemClickListener { item ->
             if (item.itemId == R.id.first) {
@@ -110,11 +117,14 @@ class ProfileFragment : Fragment() {
             false
         }
 
+=======
+>>>>>>> origin/master
         loadUserInfo()
         loadMyPosts()
         loadMyFollowers()
         loadMyFollowing()
 
+<<<<<<< HEAD
     }
 
     private fun loadMyFollowing(){
@@ -135,11 +145,22 @@ class ProfileFragment : Fragment() {
         DatabaseManager.loadFollowers(uid, object : DBUsersHandler{
             override fun onSuccess(users: ArrayList<User>) {
                 tv_followers.text = users.size.toString()
+=======
+    }
+
+    fun loadMyFollowers(){
+        val uid = AuthManager.currentUser()!!.uid
+        DatabaseManager.loadFollowers(uid,object : DBUsersHandler{
+            override fun onSuccess(users: ArrayList<User>) {
+                tv_followers.text = users.size.toString()
+
+>>>>>>> origin/master
             }
 
             override fun onError(e: Exception) {
 
             }
+<<<<<<< HEAD
         })
     }
 
@@ -154,6 +175,23 @@ class ProfileFragment : Fragment() {
             override fun onError(e: Exception) {
                 TODO("Not yet implemented")
             }
+=======
+
+        })
+    }
+
+    fun loadMyFollowing(){
+        val uid = AuthManager.currentUser()!!.uid
+        DatabaseManager.loadFollowing(uid,object : DBUsersHandler{
+            override fun onSuccess(users: ArrayList<User>) {
+                tv_following.text = users.size.toString()
+            }
+
+            override fun onError(e: Exception) {
+
+            }
+
+>>>>>>> origin/master
         })
     }
 
@@ -270,11 +308,14 @@ class ProfileFragment : Fragment() {
 
     }
 
+<<<<<<< HEAD
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)){
             true
         }
         return super.onOptionsItemSelected(item)
     }*/
+=======
+>>>>>>> origin/master
 
 }
