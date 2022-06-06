@@ -16,30 +16,18 @@ import com.google.android.material.imageview.ShapeableImageView
 
 class HomeAdapter(var fragment:HomeFragment, var items:ArrayList<Post>):BaseAdapter() {
 
-     val ITEM_POST = 0
-     val ITEM_POST_FOOTER = 1
-
     override fun getItemCount(): Int {
         return items.size
     }
 
-    override fun getItemViewType(position: Int): Int {
-        if (position == items.size-1) return ITEM_POST_FOOTER
-
-        return ITEM_POST
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == ITEM_POST_FOOTER){
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post_home_footer,parent,false)
-            return FooterViewHolder(view)
-        }
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post_home, parent, false)
         return PostViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post:Post = items[items.size - position - 1]
+       // val post:Post = items[position]
 
         if (holder is PostViewHolder){
             val iv_post = holder.iv_post
@@ -86,8 +74,6 @@ class HomeAdapter(var fragment:HomeFragment, var items:ArrayList<Post>):BaseAdap
                 fragment.showDeleteDialog(post)
             }
         }
-
-        if (holder is FooterViewHolder){}
     }
 
     class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -111,13 +97,6 @@ class HomeAdapter(var fragment:HomeFragment, var items:ArrayList<Post>):BaseAdap
             iv_more = view.findViewById(R.id.iv_more)
             iv_like = view.findViewById(R.id.iv_like)
             iv_share = view.findViewById(R.id.iv_share)
-        }
-    }
-
-    class FooterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-        init {
-
         }
     }
 }

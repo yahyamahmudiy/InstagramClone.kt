@@ -62,6 +62,48 @@
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_marginBottom="50dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="done_animation.json"
+                app:lottie_loop="false"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="You're all caught up"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="You've seen all new posts from past days."
+                android:textColor="#59000000"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="View older posts"
+                android:layout_marginTop="5dp"
+                android:textColor="#039BE5"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </LinearLayout>
     </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

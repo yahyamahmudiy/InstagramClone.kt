@@ -57,7 +57,7 @@
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/activity_splash.xml" value="0.176" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/custom_progress_dialog.xml" value="0.24682971014492755" />
-        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_favourite.xml" value="0.2" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_favourite.xml" value="0.264" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/fragment_search.xml" value="0.2418478260869565" />
@@ -65,6 +65,7 @@
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_favourite.xml" value="0.264" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_home.xml" value="0.264" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_home_footer.xml" value="0.264" />
+        <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_liked.xml" value="0.24456521739130435" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_post_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_story_view.xml" value="0.4" />
         <entry key="..\:/PDP/Android BootCamp/Xurshidek Kurbanov/Modul_7/InstagramClone.kt/app/src/main/res/layout/item_user_search.xml" value="0.264" />

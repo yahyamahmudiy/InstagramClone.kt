@@ -238,7 +238,6 @@
             android:orientation="horizontal"
             android:layout_margin="15dp">
             <LinearLayout
-<<<<<<< HEAD
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -258,66 +257,6 @@
                     android:text="New"
                     android:gravity="center_horizontal"
                     android:textColor="#262626"/>
-=======
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/tv_posts"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_posts"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/tv_followers"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="4,256"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_followers"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/tv_following"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="879"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_following"/>
-                </LinearLayout>
->>>>>>> origin/master
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"

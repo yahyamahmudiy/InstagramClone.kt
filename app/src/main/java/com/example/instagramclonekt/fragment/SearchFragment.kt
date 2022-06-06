@@ -83,20 +83,8 @@ class SearchFragment : BaseFragment() {
         refreshAdapter(users)
     }
 
-<<<<<<< HEAD
-    private fun loadUsers() {
-        val uid = AuthManager.currentUser()!!.uid
-        DatabaseManager.loadUsers(object : DBUsersHandler {
-            override fun onSuccess(users: ArrayList<User>) {
-                DatabaseManager.loadFollowing(uid, object : DBUsersHandler {
-                    override fun onSuccess(following: ArrayList<User>) {
-                        items.clear()
-                        items.addAll(mergedUsers(uid,users, following))
-                        refreshAdapter(items)
-                    }
 
-                    override fun onError(e: Exception) {
-=======
+
     fun loadUsers(){
         val uid = AuthManager.currentUser()!!.uid
         DatabaseManager.loadUsers(object :DBUsersHandler{
@@ -109,7 +97,6 @@ class SearchFragment : BaseFragment() {
                     }
 
                     override fun onError(e: java.lang.Exception) {
->>>>>>> origin/master
 
                     }
                 })
@@ -121,41 +108,30 @@ class SearchFragment : BaseFragment() {
         })
     }
 
-<<<<<<< HEAD
-    private fun mergedUsers(uid:String, users: ArrayList<User>, following: ArrayList<User>): ArrayList<User> {
-        val items = ArrayList<User>()
-        for (u in users){
-            val user = u
-            for(f in following){
-                if(u.uid == f.uid){
-=======
+
+
     fun mergedUsers(uid:String,users:ArrayList<User>,following:ArrayList<User>):ArrayList<User>{
         val items = ArrayList<User>()
         for (u in users){
             val user = u
             for (f in following){
                 if (u.uid == f.uid){
->>>>>>> origin/master
+
                     user.isFollowed = true
                     break
                 }
             }
-<<<<<<< HEAD
-            if(uid != user.uid){
-=======
+
             if (uid != user.uid){
->>>>>>> origin/master
+
                 items.add(user)
             }
         }
         return items
     }
 
-<<<<<<< HEAD
-    fun followOrUnfollow(to: User) {
-=======
     fun followOrUnfollow(to:User){
->>>>>>> origin/master
+
         val uid = AuthManager.currentUser()!!.uid
         if (!to.isFollowed) {
             followUser(uid, to)
@@ -167,7 +143,7 @@ class SearchFragment : BaseFragment() {
     private fun sendFollowNotification(token: ArrayList<String>, user: String) {
         Log.d("tokennn", token.toString())
         apiService.sendNotification(FirebaseRequest(
-            Notification("Sizga ${user} follow qildi", "Instagram clone"), token))
+            Notification("${user} started following you", "Instagram clone"), token))
             .enqueue(object : Callback<FirebaseResponse> {
                 override fun onResponse(
                     call: Call<FirebaseResponse>,
@@ -186,7 +162,7 @@ class SearchFragment : BaseFragment() {
     private fun sendUnFollowNotification(token:ArrayList<String>, user: String) {
         Log.d("tokennn", token.toString())
         apiService.sendNotification(FirebaseRequest(
-            Notification("Sizdan ${user} unFollow qildi", "Instagram clone"), token))
+            Notification("${user} unfollowed you", "Instagram clone"), token))
             .enqueue(object : Callback<FirebaseResponse> {
                 override fun onResponse(
                     call: Call<FirebaseResponse>,
@@ -208,7 +184,7 @@ class SearchFragment : BaseFragment() {
                 DatabaseManager.followUser(me!!, to, object : DBFollowHandler {
                     override fun onSuccess(isFollowed: Boolean) {
                         to.isFollowed = true
-<<<<<<< HEAD
+
                         //Log.d("@@@@", to.device_tokens[0])
                         if (to.device_tokens.size != 0){
                             sendFollowNotification(to.device_tokens, me.fullname)
@@ -217,8 +193,6 @@ class SearchFragment : BaseFragment() {
                         }
 
                         DatabaseManager.storePostsToMyFeed(uid, to)
-=======
-                        DatabaseManager.storePostsToMyFeed(uid,to)
                     }
 
                     override fun onError(e: java.lang.Exception) {
@@ -232,26 +206,6 @@ class SearchFragment : BaseFragment() {
 
             }
 
-        })
-    }
-
-    fun unfollowUser(uid: String,to:User){
-        DatabaseManager.loadUser(uid,object :DBUserHandler{
-            override fun onSuccess(me: User?) {
-                DatabaseManager.unFollowUser(me!!,to,object : DBFollowHandler{
-                    override fun onSuccess(isFollowed: Boolean) {
-                        to.isFollowed = false
-                        DatabaseManager.removePostsToMyFeed(uid,to)
->>>>>>> origin/master
-                    }
-
-                    override fun onError(e: Exception) {
-                    }
-                })
-            }
-            override fun onError(e: Exception) {
-
-            }
         })
     }
 

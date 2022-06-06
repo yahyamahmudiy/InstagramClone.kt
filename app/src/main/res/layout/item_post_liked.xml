@@ -20,10 +20,11 @@
             android:id="@+id/iv_profile"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:scaleType="centerCrop"
             android:padding="2dp"
             android:src="@drawable/ic_person"
             app:shapeAppearanceOverlay="@style/circle"
-            app:strokeColor="@color/app_color_2"
+            app:strokeColor="@color/white"
             app:strokeWidth="2dp"/>
 
         <LinearLayout

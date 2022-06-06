@@ -59,11 +59,9 @@ class ProfileFragment : Fragment() {
     lateinit var tv_posts:TextView
     lateinit var tv_followers:TextView
     lateinit var tv_following:TextView
-<<<<<<< HEAD
+
     lateinit var toolbar: Toolbar
     //lateinit var toggle: ActionBarDrawerToggle
-=======
->>>>>>> origin/master
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
@@ -83,10 +81,9 @@ class ProfileFragment : Fragment() {
         tv_email = view.findViewById(R.id.tv_email)
         tv_followers = view.findViewById(R.id.tv_followers)
         tv_following = view.findViewById(R.id.tv_following)
-<<<<<<< HEAD
+
         toolbar = view.findViewById(R.id.toolBar) as Toolbar
-=======
->>>>>>> origin/master
+
         iv_profile.setOnClickListener {
             pickFishBunPhoto()
         }
@@ -98,7 +95,7 @@ class ProfileFragment : Fragment() {
 
         }
 
-<<<<<<< HEAD
+
         toolbar.inflateMenu(R.menu.nav_drawer);
         toolbar.setOnMenuItemClickListener { item ->
             if (item.itemId == R.id.first) {
@@ -117,35 +114,13 @@ class ProfileFragment : Fragment() {
             false
         }
 
-=======
->>>>>>> origin/master
+
         loadUserInfo()
         loadMyPosts()
         loadMyFollowers()
         loadMyFollowing()
 
-<<<<<<< HEAD
-    }
 
-    private fun loadMyFollowing(){
-        val uid = AuthManager.currentUser()!!.uid
-        DatabaseManager.loadFollowing(uid, object : DBUsersHandler{
-            override fun onSuccess(users: ArrayList<User>) {
-                tv_following.text = users.size.toString()
-            }
-
-            override fun onError(e: Exception) {
-
-            }
-        })
-    }
-
-    private fun loadMyFollowers(){
-        val uid = AuthManager.currentUser()!!.uid
-        DatabaseManager.loadFollowers(uid, object : DBUsersHandler{
-            override fun onSuccess(users: ArrayList<User>) {
-                tv_followers.text = users.size.toString()
-=======
     }
 
     fun loadMyFollowers(){
@@ -154,13 +129,13 @@ class ProfileFragment : Fragment() {
             override fun onSuccess(users: ArrayList<User>) {
                 tv_followers.text = users.size.toString()
 
->>>>>>> origin/master
+
             }
 
             override fun onError(e: Exception) {
 
             }
-<<<<<<< HEAD
+
         })
     }
 
@@ -175,7 +150,7 @@ class ProfileFragment : Fragment() {
             override fun onError(e: Exception) {
                 TODO("Not yet implemented")
             }
-=======
+
 
         })
     }
@@ -191,7 +166,7 @@ class ProfileFragment : Fragment() {
 
             }
 
->>>>>>> origin/master
+
         })
     }
 
@@ -266,56 +241,5 @@ class ProfileFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId){
-            R.id.first -> {
-                Toast.makeText(requireContext(), "Second", Toast.LENGTH_SHORT).show()
-            }
-            R.id.second -> {
-                toast("Second")
-            }
-            R.id.third -> {
-                toast("Third")
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }*/
-
-    /*fun openDrawer(view: View){
-        val navView:NavigationView = view.findViewById(R.id.navView)
-        var mDrawer:DrawerLayout =  view.findViewById(R.id.drawerLayout) as DrawerLayout
-        toggle=ActionBarDrawerToggle(  requireActivity(), mDrawer, R.string.open, R.string.close)
-        mDrawer.addDrawerListener(toggle)
-        toggle.syncState()
-
-
-        //(activity as AppCompatActivity?)!!.supportActionBar?.setDisplayHomeAsUpEnabled (true)
-
-        navView.setNavigationItemSelectedListener {
-            when (it.itemId){
-                R.id.first -> {
-                    toast("First")
-                }
-                R.id.second -> {
-                    toast("Second")
-                }
-                R.id.third -> {
-                    toast("Third")
-                }
-            }
-            true
-        }
-
-    }
-
-<<<<<<< HEAD
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)){
-            true
-        }
-        return super.onOptionsItemSelected(item)
-    }*/
-=======
->>>>>>> origin/master
 
 }

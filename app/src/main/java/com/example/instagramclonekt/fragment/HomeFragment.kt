@@ -32,15 +32,11 @@ class HomeFragment : BaseFragment() {
     private var listener:HomeListener? = null
     lateinit var iv_camera:ImageView
     lateinit var recyclerView: RecyclerView
-<<<<<<< HEAD
     lateinit var recyclerView1: RecyclerView
     lateinit var adapter:HomeAdapter
     lateinit var adapter1: StoryAdapter
     var feeds = ArrayList<Post>()
     var items = ArrayList<User>()
-=======
-    var feeds = ArrayList<Post>()
->>>>>>> origin/master
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
@@ -51,7 +47,12 @@ class HomeFragment : BaseFragment() {
     fun initViews(view: View) {
         iv_camera = view.findViewById(R.id.iv_camera)
         recyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.setLayoutManager(GridLayoutManager(activity,1))
+
+        val gridLayoutManager = GridLayoutManager(activity,1)
+        //gridLayoutManager.setReverseLayout(true);
+        //gridLayoutManager.setStackFromEnd(true);
+
+        recyclerView.layoutManager = gridLayoutManager
 
         recyclerView1 = view.findViewById(R.id.recyclerView1)
         recyclerView1.setLayoutManager(LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false))
@@ -63,39 +64,6 @@ class HomeFragment : BaseFragment() {
         loadMyFeeds()
         loadUsers()
         refreshAdapter1(items)
-    }
-
-<<<<<<< HEAD
-    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
-        if (isVisibleToUser && feeds.size > 0){
-            loadMyFeeds()
-            adapter.notifyDataSetChanged()
-        }
-=======
-    private fun refreshAdapter(items: ArrayList<Post>) {
-        val adapter = HomeAdapter(this,items)
-        recyclerView.adapter = adapter
-        adapter.notifyDataSetChanged()
-    }
-
-    private fun loadMyFeeds() {
-        showLoading(requireActivity())
-
-        val uid = AuthManager.currentUser()!!.uid
-        DatabaseManager.loadFeeds(uid,object :DBPostsHandler{
-            override fun onSuccess(posts: ArrayList<Post>) {
-                dismissLoading()
-                feeds.clear()
-                feeds.addAll(posts)
-                refreshAdapter(feeds)
-            }
-
-            override fun onError(e: Exception) {
-                dismissLoading()
-            }
-
-        })
->>>>>>> origin/master
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {

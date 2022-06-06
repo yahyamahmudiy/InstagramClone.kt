@@ -205,11 +205,9 @@ object DatabaseManager {
                     val fullname = document.getString("fullname")
                     val email = document.getString("email")
                     val userImg = document.getString("userImg")
-<<<<<<< HEAD
+
                     val user = User(fullname!!,email!!,"",userImg!!)
-=======
-                    val user = User(fullname!!,email!!,userImg!!)
->>>>>>> origin/master
+
                     user.uid = uid!!
                     users.add(user)
                 }
@@ -219,10 +217,7 @@ object DatabaseManager {
             }
         }
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
     fun loadFollowers(uid:String,handler:DBUsersHandler){
         database.collection(USER_PATH).document(uid).collection(FOLLOWERS_PATH).get().addOnCompleteListener {
             val users = ArrayList<User>()
@@ -232,11 +227,9 @@ object DatabaseManager {
                     val fullname = document.getString("fullname")
                     val email = document.getString("email")
                     val userImg = document.getString("userImg")
-<<<<<<< HEAD
+
                     val user = User(fullname!!,email!!,"",userImg!!)
-=======
-                    val user = User(fullname!!,email!!,userImg!!)
->>>>>>> origin/master
+
                     user.uid = uid!!
                     users.add(user)
                 }
@@ -247,7 +240,7 @@ object DatabaseManager {
         }
     }
 
-<<<<<<< HEAD
+
     fun likeFeedPost(uid: String, post: Post) {
         database.collection(USER_PATH).document(uid).collection(FEED_PATH).document(post.id)
             .update("isLiked", post.isLiked)
@@ -314,22 +307,17 @@ object DatabaseManager {
 
     }
 
-
     fun removePostsFromMyFeed(uid: String, to: User) {
-=======
-    fun removePostsToMyFeed(uid: String, to: User) {
->>>>>>> origin/master
-        loadPosts(to.uid,object :DBPostsHandler{
+        loadPosts(to.uid, object : DBPostsHandler {
             override fun onSuccess(posts: ArrayList<Post>) {
-                for (post in posts){
-                    removeFeed(uid,post)
+                for (post in posts) {
+                    removeFeed(uid, post)
                 }
             }
 
             override fun onError(e: Exception) {
 
             }
-
         })
     }
 
