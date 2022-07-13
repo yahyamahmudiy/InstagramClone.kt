@@ -1,5 +1,7 @@
 package com.example.instagramclonekt.manager
 
+import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
@@ -38,17 +40,31 @@ class FirebaseConfig(var ll: LinearLayout, var tv: TextView) {
         Log.d("@@@", "applyConfig: $font_size")
         Log.d("@@@", "applyConfig: $text")
 
-        this.ll.backgroundGradientDrawable(Color.parseColor(bg_color), Color.parseColor(bg_color2))
+        //this.ll.backgroundGradientDrawable(Color.parseColor(bg_color), Color.parseColor(bg_color2))
+        if (isTablet(this.ll.context)) {
+            this.ll.backgroundGradientDrawable(
+                Color.parseColor(bg_color),
+                Color.parseColor(bg_color2)
+            )
+        }
+        this.ll.setBackgroundColor(Color.parseColor(bg_color2))
         this.tv.text = text
         this.tv.textSize = font_size.toFloat()
 
     }
+
     fun View.backgroundGradientDrawable(@ColorInt startColor: Int, @ColorInt endColor: Int): Unit {
         val h = this.height.toFloat()
         val shapeDrawable = ShapeDrawable(RectShape())
         shapeDrawable.paint.shader =
             LinearGradient(0f, 0f, 0f, h, startColor, endColor, Shader.TileMode.REPEAT)
         this.background = shapeDrawable
+    }
+
+    fun isTablet(context: Context): Boolean {
+        val xlarge = context.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK === 4
+        val large = context.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK === Configuration.SCREENLAYOUT_SIZE_LARGE
+        return xlarge || large
     }
 
     fun updateConfig() {
