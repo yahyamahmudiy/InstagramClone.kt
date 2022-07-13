@@ -345,4 +345,6 @@ object DatabaseManager {
         val refrence = database.collection(USER_PATH).document(uid).collection(FEED_PATH)
         refrence.document(post.id).set(post)
     }
+
+
 }

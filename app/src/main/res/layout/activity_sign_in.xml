@@ -10,6 +10,7 @@
     tools:context=".activity.SignInActivity">
 
     <LinearLayout
+        android:id="@+id/llBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -17,6 +18,7 @@
         android:gravity="center_horizontal|center_vertical"
         android:orientation="vertical">
         <TextView
+            android:id="@+id/tvInsta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/custom_font"
@@ -142,7 +144,15 @@
                 android:textColor="#3797EF"
                 android:textSize="16sp"
                 android:textStyle="normal" />
+
         </LinearLayout>
+        <TextView
+            android:id="@+id/tv_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="No Link"
+            android:textColor="#000000" />
 
     </LinearLayout>
     <LinearLayout
@@ -163,21 +173,3 @@
             android:src="@drawable/meta"/>
     </LinearLayout>
 </LinearLayout>
-<!--
-         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="bottom"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="from"
-                android:textColor="#90000000"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:src="@drawable/meta"/>
-        </LinearLayout>
-        -->
