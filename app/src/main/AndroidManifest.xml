@@ -15,9 +15,6 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:windowSoftInputMode="adjustPan">
         <activity
-            android:name=".activity.LikedPostsActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.SignUpActivity"
             android:exported="false" />
         <activity

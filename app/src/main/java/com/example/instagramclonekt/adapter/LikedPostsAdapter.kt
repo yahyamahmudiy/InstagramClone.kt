@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.instagramclonekt.R
-import com.example.instagramclonekt.activity.LikedPostsActivity
+import com.example.instagramclonekt.fragment.LikedPostsFragment
 import com.example.instagramclonekt.manager.AuthManager
 import com.example.instagramclonekt.model.Post
 import com.google.android.material.imageview.ShapeableImageView
 
-class LikedPostsAdapter(var fragment:LikedPostsActivity, var items:ArrayList<Post>):BaseAdapter() {
+class LikedPostsAdapter(var fragment:LikedPostsFragment, var items:ArrayList<Post>):BaseAdapter() {
 
     override fun getItemCount(): Int {
         return items.size

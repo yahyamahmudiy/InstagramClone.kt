@@ -42,12 +42,13 @@ class FirebaseConfig(var ll: LinearLayout, var tv: TextView) {
 
         //this.ll.backgroundGradientDrawable(Color.parseColor(bg_color), Color.parseColor(bg_color2))
         if (isTablet(this.ll.context)) {
-            this.ll.backgroundGradientDrawable(
-                Color.parseColor(bg_color),
-                Color.parseColor(bg_color2)
-            )
+            this.ll.setBackgroundColor(Color.parseColor(bg_color2))
         }
-        this.ll.setBackgroundColor(Color.parseColor(bg_color2))
+
+        this.ll.backgroundGradientDrawable(
+            Color.parseColor(bg_color),
+            Color.parseColor(bg_color2)
+        )
         this.tv.text = text
         this.tv.textSize = font_size.toFloat()
 

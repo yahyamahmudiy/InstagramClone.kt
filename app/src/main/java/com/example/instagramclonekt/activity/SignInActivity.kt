@@ -46,10 +46,10 @@ class SignInActivity : BaseActivity() {
 
         btn_signin.setOnClickListener {
             FirebaseConfig(llBack,tvInsta).updateConfig()
-            //val email = et_email.text.toString().trim()
-            //val password = et_password.text.toString().trim()
-            /*if (email.isNotEmpty() && password.isNotEmpty())
-                firebaseSignIn(email, password)*/
+            val email = et_email.text.toString().trim()
+            val password = et_password.text.toString().trim()
+            if (email.isNotEmpty() && password.isNotEmpty())
+                firebaseSignIn(email, password)
             //val str1 = reverse(email)
             //val str2 = reverse(password)
         }

@@ -1,25 +1,19 @@
 package com.example.instagramclonekt.fragment
 
 import android.app.Activity
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.instagramclonekt.R
 import com.example.instagramclonekt.activity.BaseActivity
-import com.example.instagramclonekt.adapter.HomeAdapter
 import com.example.instagramclonekt.adapter.ProfileAdapter
 import com.example.instagramclonekt.manager.AuthManager
 import com.example.instagramclonekt.manager.DatabaseManager
@@ -30,17 +24,11 @@ import com.example.instagramclonekt.manager.handler.DBUsersHandler
 import com.example.instagramclonekt.manager.handler.StorageHandler
 import com.example.instagramclonekt.model.Post
 import com.example.instagramclonekt.model.User
-import com.example.instagramclonekt.utils.Extensions.toast
-import com.example.instagramclonekt.utils.Logger
 import com.google.android.material.imageview.ShapeableImageView
-import com.google.android.material.navigation.NavigationView
 import com.sangcomz.fishbun.FishBun
 import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter
 import java.lang.Exception
-import android.view.MenuItem
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import com.example.instagramclonekt.activity.LikedPostsActivity
+import androidx.navigation.fragment.findNavController
 
 
 /*
@@ -100,10 +88,7 @@ class ProfileFragment : Fragment() {
         toolbar.setOnMenuItemClickListener { item ->
             if (item.itemId == R.id.first) {
 
-                activity?.let{
-                    val intent = Intent (it, LikedPostsActivity::class.java)
-                    it.startActivity(intent)
-                }
+                findNavController().navigate(R.id.action_profileFragment_to_likedPostsFragment)
 
             } else if (item.itemId == R.id.second) {
                 AuthManager.signOut()

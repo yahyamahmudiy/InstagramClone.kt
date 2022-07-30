@@ -1,36 +1,41 @@
-package com.example.instagramclonekt.activity
+package com.example.instagramclonekt.fragment
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagramclonekt.R
 import com.example.instagramclonekt.adapter.LikedPostsAdapter
-import com.example.instagramclonekt.fragment.FavouriteFragment
 import com.example.instagramclonekt.manager.AuthManager
 import com.example.instagramclonekt.manager.DatabaseManager
 import com.example.instagramclonekt.manager.handler.DBPostsHandler
 import com.example.instagramclonekt.model.Post
 import java.lang.Exception
 
-class LikedPostsActivity : BaseActivity() {
-    val TAG = FavouriteFragment::class.java.simpleName
+class LikedPostsFragment : BaseFragment() {
     lateinit var recyclerView: RecyclerView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_liked_posts)
-
-        initViews()
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_liked_posts, container, false)
+        initViews(view)
+        return view
     }
 
-    private fun initViews() {
-        recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.setLayoutManager(GridLayoutManager(this,1))
+    private fun initViews(view: View) {
+        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.setLayoutManager(GridLayoutManager(requireContext(),1))
 
-        val iv_back:ImageView = findViewById(R.id.iv_back)
+        val iv_back: ImageView = view.findViewById(R.id.iv_back)
         iv_back.setOnClickListener {
-            finish()
+            findNavController().popBackStack()
         }
 
         refreshAdapter(loadPosts())
@@ -50,7 +55,7 @@ class LikedPostsActivity : BaseActivity() {
     }
 
     fun loadLikedFeeds(){
-        showLoading(this)
+        showLoading(requireActivity())
         val uid = AuthManager.currentUser()!!.uid
         DatabaseManager.loadLikedFeeds(uid,object : DBPostsHandler {
             override fun onSuccess(posts: ArrayList<Post>) {
