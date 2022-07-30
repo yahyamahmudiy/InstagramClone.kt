@@ -1,6 +1,7 @@
 package com.example.instagramclonekt.activity
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -31,5 +32,28 @@ class MainActivity : BaseActivity() {
         navController = navHostFragment.navController
         bottomNavigationView.setupWithNavController(navController)
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+
+            when (destination.id) {
+                R.id.homeFragment -> {
+                    bottomNavigationView.isVisible = true
+                }
+                R.id.searchFragment -> {
+                    bottomNavigationView.isVisible = true
+                }
+                R.id.uploadFragment -> {
+                    bottomNavigationView.isVisible = true
+                }
+                R.id.favouriteFragment -> {
+                    bottomNavigationView.isVisible = true
+                }
+                R.id.profileFragment -> {
+                    bottomNavigationView.isVisible = true
+                }
+                R.id.likedPostsFragment -> {
+                    bottomNavigationView.isVisible = false
+                }
+            }
+        }
     }
 }
