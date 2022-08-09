@@ -4,7 +4,8 @@
 - Jetpack Navigation 
 - Glide 
 - Retrofit 
-- Rest, 
+- Rest
+- RecyclerView
 - Firebase tools: Authentication, Database, Storage, Notification, App Distribution, Crashlytics, Dynamic Links, Remote Config
 
 
